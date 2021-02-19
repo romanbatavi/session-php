@@ -5,7 +5,6 @@
     </head>
     <body>
         <div class="container">
-
             <nav class="main-menu">
                 <a href="list.php?user_id=<?=$_GET['user_id'];?>"><b><u>List</u></></a>
                 <a href="konten.php?user_id=<?=$_GET['user_id'];?>"><u><b>Konten</b></u></a>
