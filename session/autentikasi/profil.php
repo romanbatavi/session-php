@@ -16,13 +16,14 @@
         <title>Autentikasi - List</title>
         <link rel="stylesheet" href="style.css">
     </head>
-    
+
     <body>
         <div class="container">
             <nav class="main-menu">
                 <a href="list.php"><b><u>List</u></></a>
                 <a href="konten.php"><u><b>Konten</b></u></a>
                 <a href="#" class="active"><b><u>Profil</u></b></a>
+                <a href="logout.php"><u><b>Logout</b></u></a>
             </nav>
             
             <div class="content">

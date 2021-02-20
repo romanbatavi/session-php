@@ -12,6 +12,7 @@
                 <a href="#" class="active"><b><u>List</u></b></a>
                 <a href="konten.php"><b><u>Konten</u></b></a>
                 <a href="profil.php"><b><u>Profil</u></u></a>
+                <a href="logout.php"><u><b>Logout</b></u></a>
             </nav>
             
             <div class="content">
