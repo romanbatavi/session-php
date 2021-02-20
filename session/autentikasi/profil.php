@@ -1,3 +1,14 @@
+<?php
+    include('connection.php');
+    
+    $user_id  = $_GET['user_id'];
+
+    $pdo = $db->prepare('SELECT * FROM user WHERE id=:user_id');
+    $data['user_id'] = $user_id;
+    $pdo->execute($data);
+    $user = $pdo->fetch(PDO::FETCH_ASSOC);
+?>
+
 <html>
     <head>
         <title>Autentikasi - List</title>
@@ -13,7 +24,8 @@
             
             <div class="content">
             <?php if(isset($_GET['user_id'])): ?>
-            Halaman Profil
+            <p>User ID : <?=$user['id'] ?></p>
+            <p>Name : <?=$user['name'] ?></p>
             <?php else: ?>
                 <p class="danger">Anda Tidak Dapat Mengakses Halaman Ini</p>
                 <a href="login.php" class="btn-login">Login</a>
