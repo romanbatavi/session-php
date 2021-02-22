@@ -9,9 +9,9 @@
     $data['email'] = $email;
     $data['password'] = $password;
     $pdo->execute($data);
-    $user = $pdo->fetch();
 
     if($pdo->rowCount()){
+        $user = $pdo->fetch();
         header('location: list.php?user_id='.$user['id']);
     } else {
         header('location: login.php?error=true');

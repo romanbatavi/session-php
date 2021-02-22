@@ -1,12 +1,14 @@
 <?php
     include('connection.php');
     
-    $user_id  = $_GET['user_id'];
+    $user_id  = isset($GET['user_id']) ? ($GET['user_id']) : false ;
 
     $pdo = $db->prepare('SELECT * FROM user WHERE id=:user_id');
     $data['user_id'] = $user_id;
     $pdo->execute($data);
-    $user = $pdo->fetch(PDO::FETCH_ASSOC);
+    if($pdo->rowCount()){
+        $user = $pdo->fetch(PDO::FETCH_ASSOC);
+    }
 ?>
 
 <html>
@@ -23,7 +25,7 @@
             </nav>
             
             <div class="content">
-            <?php if(isset($_GET['user_id'])): ?>
+            <?php if($user_id): ?>
             <p>User ID : <?=$user['id'] ?></p>
             <p>Name : <?=$user['name'] ?></p>
             <?php else: ?>
