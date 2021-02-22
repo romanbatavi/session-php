@@ -8,9 +8,11 @@
     $pdo->execute();
     $products = $pdo->fetchALL(PDO::FETCH_ASSOC);
 
-    echo "<pre>";
-    print_r($_SESSION);
-    echo "</pre>";
+    $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : []
+
+    // echo "<pre>";
+    // print_r($_SESSION);
+    // echo "</pre>";
 ?>
 
 <html>
@@ -23,7 +25,7 @@
 
             <nav class="main-menu">
                 <a href="#" class="active">List</a>
-                <a href="cart.php">Cart</a>
+                <a href="cart.php">Cart(<?=count($cart)?>)</a>
             </nav>
             
             <div class="content">
