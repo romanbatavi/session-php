@@ -1,3 +1,12 @@
+<?php
+
+    include('connection.php');
+
+    $pdo = $db->prepare("SELECT * FROM product");
+    $pdo->execute();
+    $products = $pdo->fetchALL(PDO::FETCH_ASSOC);
+?>
+
 <html>
     <head>
         <title>Autentikasi - List</title>
@@ -7,14 +16,19 @@
         <div class="container">
 
             <nav class="main-menu">
-                <a href="#" class="active">list</a>
+                <a href="#" class="active">List</a>
                 <a href="cart.php">Cart</a>
             </nav>
             
             <div class="content">
-                List Product
+                <?php foreach($products AS $product): ?>
+                <div class="product">
+                    <p><?=$product['title'] ?></p>
+                    <label>Rp.<?=number_format($product['price'])?></label>
+                    <a href="add-to-cart.php?id=<?=$product['id']?>">Add To Cart</a>
+                </div>
+                <?php endforeach; ?>
             </div>
-
         </div>
     </body>
 </html>    
