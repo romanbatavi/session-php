@@ -3,7 +3,7 @@
     session_start();
     include('connection.php');
     
-    $user_id  = $_SESSION['user_id'];
+    $user_id  = isset($_SESSION['user_id']) ? ($_SESSION['user_id']) : false ;
 
     $pdo = $db->prepare('SELECT * FROM user WHERE id=:user_id');
     $data['user_id'] = $user_id;
@@ -27,7 +27,7 @@
             </nav>
             
             <div class="content">
-            <?php if(isset($_SESSION['user_id'])): ?>
+            <?php if($user_id): ?>
             <p>User ID : <?=$user['id'] ?></p>
             <p>Name : <?=$user['name'] ?></p>
             <?php else: ?>
