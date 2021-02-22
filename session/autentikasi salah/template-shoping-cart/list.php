@@ -16,7 +16,7 @@
         <div class="container">
 
             <nav class="main-menu">
-                <a href="#" class="active">List Menu</a>
+                <a href="#" class="active">List</a>
                 <a href="cart.php">Cart</a>
             </nav>
             
