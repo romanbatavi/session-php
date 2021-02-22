@@ -1,10 +1,16 @@
 <?php
 
+    session_start();
+    // session_destroy();
     include('connection.php');
 
     $pdo = $db->prepare("SELECT * FROM product");
     $pdo->execute();
     $products = $pdo->fetchALL(PDO::FETCH_ASSOC);
+
+    echo "<pre>";
+    print_r($_SESSION);
+    echo "</pre>";
 ?>
 
 <html>
